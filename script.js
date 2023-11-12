@@ -39,12 +39,28 @@ loader.load("./wideSreen.glb", function (gltf) {
   gltf.scene.position.set(0, 0, 2);
   scene.add(gltf.scene);
 });
+loader.load("./floor.glb", function (gltf) {
+  //If the file is loaded, add it to the scene
+  gltf.scene.position.set(0, 0, 2);
+  gltf.scene.scale.set(5, 5, 5);
+  scene.add(gltf.scene);
+});
 
-const light = new THREE.PointLight(0xffffff, 100, 100);
-light.position.set(5, 3, 10);
+//lights
 
-scene.add(light);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+scene.add(ambientLight);
 
+const lamp = new THREE.PointLight(0xfa8072, 15);
+lamp.position.set(0, 1, 3);
+scene.add(lamp);
+
+const lamp1 = new THREE.PointLight(0x0066ff, 10);
+lamp1.position.set(-1.5, 3, 3);
+scene.add(lamp1);
+
+const diractionalLight = new THREE.DirectionalLight(0x6600cc, 3);
+scene.add(diractionalLight);
 //pointer
 const pointer = new THREE.Vector2();
 
@@ -124,13 +140,13 @@ const onClick = () => {
 
 const animate = () => {
   controls.update();
-  resetHover();
+  // resetHover();
   // hoverObjects();
-  raycaster.setFromCamera(pointer, camera);
+  // raycaster.setFromCamera(pointer, camera);
   window.requestAnimationFrame(animate);
   renderer.render(scene, camera);
 };
 animate();
 
-window.addEventListener("click", onClick);
+// window.addEventListener("click", onClick);
 window.addEventListener("pointermove", onPointerMove);
