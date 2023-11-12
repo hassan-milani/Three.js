@@ -51,15 +51,15 @@ loader.load("./floor.glb", function (gltf) {
 
 //lights
 
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.2);
+const ambientLight = new THREE.AmbientLight(0x6600cc, 0.2);
 scene.add(ambientLight);
 
 const lamp = new THREE.PointLight(0xfa8072, 15);
-lamp.position.set(0, 1.7, 3);
+lamp.position.set(0, 1.7, 3.5);
 scene.add(lamp);
 
 const lamp1 = new THREE.PointLight(0x0066ff, 10);
-lamp1.position.set(-1.5, 3, 3);
+lamp1.position.set(-1.5, 3, 3.5);
 scene.add(lamp1);
 
 const lamp2 = new THREE.PointLight(0x0066ff, 10);
@@ -67,11 +67,11 @@ lamp2.position.set(1.5, 2.5, -2);
 scene.add(lamp2);
 
 const lamp3 = new THREE.PointLight(0x0066ff, 10);
-lamp3.position.set(-2.5, 2.5, -1);
+lamp3.position.set(-3, 2.5, -1);
 scene.add(lamp3);
 
 const lamp4 = new THREE.PointLight(0xfa8072, 5);
-lamp4.position.set(-2.5, 1.3, 1);
+lamp4.position.set(-3, 1.3, 1);
 scene.add(lamp4);
 
 const diractionalLight = new THREE.DirectionalLight(0x6600cc, 1);
