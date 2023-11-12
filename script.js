@@ -63,7 +63,7 @@ lamp1.position.set(-1.5, 3, 3.5);
 scene.add(lamp1);
 
 const lamp2 = new THREE.PointLight(0x0066ff, 10);
-lamp2.position.set(1.5, 2.5, -2);
+lamp2.position.set(2, 2.5, -2);
 scene.add(lamp2);
 
 const lamp3 = new THREE.PointLight(0x0066ff, 10);
