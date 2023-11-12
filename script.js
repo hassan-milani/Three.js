@@ -67,7 +67,8 @@ lamp2.position.set(1.5, 2, -2);
 scene.add(lamp2);
 
 const diractionalLight = new THREE.DirectionalLight(0x6600cc, 3);
-scene.add(diractionalLight);console.log(scene);
+scene.add(diractionalLight);
+console.log(scene);
 //pointer
 const pointer = new THREE.Vector2();
 
@@ -200,12 +201,12 @@ const onClick = () => {
 const animate = () => {
   controls.update();
   resetHover();
-
+  hoverObjects();
   raycaster.setFromCamera(pointer, camera);
   window.requestAnimationFrame(animate);
   renderer.render(scene, camera);
 };
 animate();
 
-// window.addEventListener("click", onClick);
+window.addEventListener("click", onClick);
 window.addEventListener("pointermove", onPointerMove);
