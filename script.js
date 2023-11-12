@@ -59,6 +59,10 @@ const lamp1 = new THREE.PointLight(0x0066ff, 10);
 lamp1.position.set(-1.5, 3, 3);
 scene.add(lamp1);
 
+const lamp2 = new THREE.PointLight(0x0066ff, 10);
+lamp2.position.set(1.5, 2, -2);
+scene.add(lamp2);
+
 const diractionalLight = new THREE.DirectionalLight(0x6600cc, 3);
 scene.add(diractionalLight);
 //pointer
