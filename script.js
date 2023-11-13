@@ -48,6 +48,16 @@ loader.load("./floor.glb", function (gltf) {
   gltf.scene.scale.set(5, 5, 5);
   scene.add(gltf.scene);
 });
+loader.load("./Light.glb", function (gltf) {
+  //If the file is loaded, add it to the scene
+  gltf.scene.position.set(0.35, 0, 2);
+  scene.add(gltf.scene);
+});
+loader.load("./Light.glb", function (gltf) {
+  //If the file is loaded, add it to the scene
+  gltf.scene.position.set(1.55, 0, 2);
+  scene.add(gltf.scene);
+});
 
 //lights
 
@@ -77,6 +87,28 @@ scene.add(lamp4);
 const diractionalLight = new THREE.DirectionalLight(0x6600cc, 1);
 scene.add(diractionalLight);
 console.log(scene);
+
+const spotLight = new THREE.SpotLight(0xffffff, 3);
+const spotLightHelper = new THREE.SpotLightHelper(spotLight);
+scene.add(spotLightHelper);
+spotLight.angle = 2;
+spotLight.position.set(0, 4, 2.6);
+spotLight.rotation.set(-1, 0, 0);
+scene.add(spotLight);
+
+const spotLight2 = new THREE.SpotLight(0xffffff, 3, 5, 3);
+const spotLightHelper2 = new THREE.SpotLightHelper(spotLight2);
+scene.add(spotLightHelper2);
+spotLight2.position.set(-1.2, 4, 2.6);
+spotLight2.rotation.set(-1, 0, 0);
+scene.add(spotLight2);
+
+const spotLight3 = new THREE.SpotLight(0xffffff, 100);
+spotLight3.decay = 3;
+const spotLightHelper3 = new THREE.SpotLightHelper(spotLight3);
+scene.add(spotLightHelper3);
+spotLight3.position.set(-1.2, 10, 0);
+scene.add(spotLight3);
 //pointer
 const pointer = new THREE.Vector2();
 
@@ -101,14 +133,14 @@ const camera = new THREE.PerspectiveCamera(
   0.1,
   100
 );
-camera.position.set(-3, 5, 15);
+camera.position.set(-7, 0.2, 17);
 
 scene.add(camera);
 
 // Controls
 const controls = new OrbitControls(camera, canvas);
 controls.enableDamping = true;
-
+controls.target.set(0, 2, 0);
 controls.keys = {
   LEFT: "ArrowLeft",
   UP: "ArrowUp",
