@@ -3,6 +3,7 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { gsap } from "gsap/gsap-core";
+
 /**
  * Canvas
  */
@@ -90,7 +91,7 @@ console.log(scene);
 
 const spotLight = new THREE.SpotLight(0xffffff, 3);
 const spotLightHelper = new THREE.SpotLightHelper(spotLight);
-scene.add(spotLightHelper);
+//scene.add(spotLightHelper);
 spotLight.angle = 2;
 spotLight.position.set(0, 4, 2.6);
 spotLight.rotation.set(-1, 0, 0);
@@ -98,7 +99,7 @@ scene.add(spotLight);
 
 const spotLight2 = new THREE.SpotLight(0xffffff, 3, 5, 3);
 const spotLightHelper2 = new THREE.SpotLightHelper(spotLight2);
-scene.add(spotLightHelper2);
+//scene.add(spotLightHelper2);
 spotLight2.position.set(-1.2, 4, 2.6);
 spotLight2.rotation.set(-1, 0, 0);
 scene.add(spotLight2);
@@ -106,7 +107,7 @@ scene.add(spotLight2);
 const spotLight3 = new THREE.SpotLight(0xffffff, 100);
 spotLight3.decay = 3;
 const spotLightHelper3 = new THREE.SpotLightHelper(spotLight3);
-scene.add(spotLightHelper3);
+//scene.add(spotLightHelper3);
 spotLight3.position.set(-1.2, 10, 0);
 scene.add(spotLight3);
 //pointer
@@ -148,6 +149,9 @@ controls.keys = {
   RIGHT: "ArrowRight",
 };
 
+controls.maxPolarAngle = Math.PI / 2;
+controls.minDistance = 0.2;
+controls.maxDistance = 20;
 controls.listenToKeyEvents(window);
 // Raycaster
 var raycaster = new THREE.Raycaster();
